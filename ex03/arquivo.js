@@ -1,32 +1,42 @@
-const faturamento = {
-    dia1: 22174.1664,
-    dia2: 24537.6698,
-    dia3: 26139.6134,
-    dia4: 0.0,
-    dia5: 0.0,
-    dia6: 26742.6612,
-    dia7: 0.0,
-    dia8: 42889.2258,
-    dia9: 46251.174,
-    dia10: 11191.4722,
-    dia11: 0.0,
-    dia12: 0.0,
-    dia13: 3847.4823,
-    dia14: 373.7838,
-    dia15: 2659.7563,
-    dia16: 48924.2448,
-    dia17: 18419.2614,
-    dia18: 0.0,
-    dia19: 0.0,
-    dia20: 35240.1826,
-    dia21: 43829.1667,
-    dia22: 18235.6852,
-    dia23: 4355.0662,
-    dia24: 3327.1025,
-    dia25: 0.0,
-    dia26: 0.0,
-    dia27: 25681.8318,
-    dia28: 1718.1221,
-    dia29: 13220.495,
-    dia30: 8414.61,
-}
+const faturamentoDiario = [
+    22174.1664,
+    24537.6698,
+    26139.6134,
+    0.0,
+    0.0,
+    26742.6612,
+    0.0,
+    42889.2258,
+    46251.174,
+    11191.4722,
+    0.0,
+    0.0,
+    3847.4823,
+    373.7838,
+    2659.7563,
+    48924.2448,
+    18419.2614,
+    0.0,
+    0.0,
+    35240.1826,
+    43829.1667,
+    18235.6852,
+    4355.0662,
+    3327.1025,
+    0.0,
+    0.0,
+    25681.8318,
+    1718.1221,
+    13220.495,
+    8414.61,
+  ];
+  const menorFaturamento = Math.min(...faturamentoDiario);
+  console.log("O menor valor: " + menorFaturamento);
+  
+  const maiorFaturamento = Math.max(...faturamentoDiario);
+  console.log("O maior valor: " + maiorFaturamento);
+  
+  const mediaMensal = faturamentoDiario.reduce((acumulado, valorAtual) => acumulado + valorAtual, 0) / faturamentoDiario.length;
+  const faturamentosAcimaDaMedia = faturamentoDiario.filter(faturamento => faturamento > mediaMensal);
+  console.log(`Numero de dias em que o faturamento foi superior a media mensal: ${faturamentosAcimaDaMedia.length}`);
+  console.log(`Faturamentos acima da media: ${faturamentosAcimaDaMedia.join(", ")}`);
